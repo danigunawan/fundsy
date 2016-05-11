@@ -23,7 +23,6 @@ RSpec.describe UsersController, type: :controller do
         count_before = User.count
         valid_request
         count_after = User.count
-
         expect(count_after).to eq(count_before + 1)
       end
       it "redirects to the home page" do
@@ -45,7 +44,7 @@ RSpec.describe UsersController, type: :controller do
         post :create, user: FactoryGirl.attributes_for(:user).merge(first_name:
         nil)
       end
-      it "doesnts add a record to the database" do
+      it "does not add a record to the database" do
         count_before = User.count
         invalid_request
         count_after = User.count

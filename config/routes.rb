@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]
-  resources :campaigns
+  resources :campaigns do
+    resources :pledges, only: [:new, :create] #nesting our pledge resources inside our campaign resources so they are linked
+  end
+
+  # get "/api/v1/campaigns" =>
+  #
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :campaigns
+    end
+  end
 
   root "campaigns#index"
   #resources :campaigns, only: [:new, :create, :show, :index, :edit, :update]

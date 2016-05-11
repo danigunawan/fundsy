@@ -23,10 +23,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'active_model_serializers'
+
+gem 'catpants'
+
+gem 'omniauth-twitter'
+
 
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'simple_form'
+gem 'bootstrap-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -41,6 +49,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'nyan-cat-formatter'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do

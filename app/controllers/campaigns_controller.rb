@@ -1,12 +1,11 @@
 class CampaignsController < ApplicationController
-  before_action :find_campaign, only: [:show, :edit, :update, :history]
+  before_action :find_campaign, only: [:show, :edit, :update, :destroy]
 
   def new
     @campaign = Campaign.new
   end
 
   def create
-    campaign_params = params.require(:campaign).permit(:title, :body, :goal, :end_date)
     @campaign = Campaign.new(campaign_params)
     if @campaign.save
       redirect_to campaign_path(@campaign), notice: "Campaign created!"
@@ -17,15 +16,17 @@ class CampaignsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find params[:id]
   end
 
   def index
     @campaigns = Campaign.order(:created_at)
+    respond_to do |format|
+      format.json { render json: @campaigns.to_json }
+      format.html { render }
+    end
   end
 
   def edit
-    @campaign = Campaign.find params[:id]
   end
 
   def update
@@ -37,7 +38,6 @@ class CampaignsController < ApplicationController
   end
 
   def destroy
-    @campaign = Campaign.find params[:id]
     @campaign.destroy
     redirect_to campaigns_path, notice: "Deleted!"
   end
@@ -51,5 +51,4 @@ class CampaignsController < ApplicationController
   def campaign_params
     params.require(:campaign).permit(:title, :body, :goal, :end_date)
   end
-
 end
