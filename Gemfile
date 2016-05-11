@@ -29,6 +29,8 @@ gem 'catpants'
 
 gem 'omniauth-twitter'
 
+gem 'twitter'
+
 
 
 # Use ActiveModel has_secure_password
