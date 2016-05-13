@@ -31,6 +31,12 @@ gem 'omniauth-twitter'
 
 gem 'twitter'
 
+gem 'geocoder'
+
+gem 'gmaps4rails'
+
+gem 'underscore-rails'
+
 
 
 # Use ActiveModel has_secure_password

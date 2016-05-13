@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   serialize :twitter_raw_data, Hash
 
+  #added with googlemaps after migration
+  geocoded_by :address
+  after_validation :geocode
+
   def with_oauth?
     #will only kick presence and uniqueness val if this meth returns true and it
     #will only return true if account was created w twitter

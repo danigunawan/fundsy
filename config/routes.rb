@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :pledges, only: [:new, :create] #nesting our pledge resources inside our campaign resources so they are linked
   end
 
+  resources :nearby_campaigns, only: [:index]
+
   # get "/api/v1/campaigns" =>
   #
   namespace :api, defaults: {format: :json} do
