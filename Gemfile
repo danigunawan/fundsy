@@ -37,6 +37,8 @@ gem 'gmaps4rails'
 
 gem 'underscore-rails'
 
+gem 'sidekiq'
+
 
 
 # Use ActiveModel has_secure_password
