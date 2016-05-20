@@ -43,6 +43,8 @@ gem 'cocoon'
 
 gem 'quiet_assets'
 
+gem 'aasm'
+
 
 
 # Use ActiveModel has_secure_password

@@ -11,6 +11,33 @@ class Campaign < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :goal, presence: true, numericality: {greater_than: 10}
 
+  include AASM
+
+  aasm whiny_transitions: false do
+    state :draft, initial: true
+    state :published
+    state :canceled
+    state :funded
+    state :unfunded
+
+    event :publish do
+      transitions from: :draft, to: :published
+    end
+
+    event :fund do
+      transitions from: :published, to: :funded
+    end
+
+    event :unfund do
+      transitions from: :published, to: :unfunded
+    end
+
+    event :cancel do
+      transitions from: [;draft, :published], to: :canceled
+    end
+
+  end
+
   geocoded_by :address   # method that looks for long and lat; can also be an IP address
   after_validation :geocode #these methods come from geocoder gem         # auto-fetch coordinates
 
