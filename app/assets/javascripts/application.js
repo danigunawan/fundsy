@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require underscore
 //= require gmaps/google
+//= require_cocoon
 //= require_tree .
 //= require_catpants

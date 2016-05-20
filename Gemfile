@@ -39,6 +39,10 @@ gem 'underscore-rails'
 
 gem 'sidekiq'
 
+gem 'cocoon'
+
+gem 'quiet_assets'
+
 
 
 # Use ActiveModel has_secure_password
